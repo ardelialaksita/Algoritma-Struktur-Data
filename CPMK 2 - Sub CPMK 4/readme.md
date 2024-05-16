@@ -19,11 +19,103 @@ Sebuah semikolon (yang berada setelah kurung kurawal kanan) sangat penting untuk
 - Tipe struct yang telah didefinisikan dapat digunakan untuk mendeklarasikan variabel.
 - Pada akhir statement struct harus menggunakan sebuah semikolon (;).
 
-Kode Program
+**Kode Program**
 ```C++
+#include <iostream>
+using namespace std;
+
+// PROGRAM STRUCT DAFTAR BUKU FAVORIT
+// mendefinisikan struktur buku dengan panjang array sebanyak 5 pada masing-masing kategori
+struct buku {
+    string judulBuku[5]; // deklarasi tipe data judulBuku dan banyak datanya
+    string pengarang[5]; // deklarasi tipe data pengarang dan banyak datanya
+    string penerbit[5]; // deklarasi tipe data penerbit dan banyak datanya
+    int tebalHalaman[5]; // deklarasi tipe data tebal Halaman dan banyak datanya
+    int hargaBuku[5]; // deklarasi tipe data hargaBuku dan banyak datanya
+};
+
+int main() {
+    // deklarasi variabel favorit dengan tipe buku
+    buku favorit;
+
+    // mengisi data ke dalam variabel favorit
+    // data buku pertama
+    favorit.judulBuku[0] = "Overthinking is My Hobby";
+    favorit.pengarang[0] = "Alvi Syahrin";
+    favorit.penerbit[0] = "Kawah Media";
+    favorit.tebalHalaman[0] = 268;
+    favorit.hargaBuku[0] = 99000;
+
+    //data buku kedua
+    favorit.judulBuku[1] = "Insecurity is My Middle Name";
+    favorit.pengarang[1] = "Alvi Syahrin";
+    favorit.penerbit[1] = "Kawah Media";
+    favorit.tebalHalaman[1] = 264;
+    favorit.hargaBuku[1] = 99000;
+
+    // data buku ketiga
+    favorit.judulBuku[2] = "Autumn in Paris";
+    favorit.pengarang[2] = "Ilana Tan";
+    favorit.penerbit[2] = "Gramedia Pustaka Utama";
+    favorit.tebalHalaman[2] = 260;
+    favorit.hargaBuku[2] = 79000;
+
+    // data buku keempat
+    favorit.judulBuku[3] = "The Star and I";
+    favorit.pengarang[3] = "Ilana Tan";
+    favorit.penerbit[3] = "Gramedia Pustaka Utama";
+    favorit.tebalHalaman[3] = 344;
+    favorit.hargaBuku[3] = 99000;
+
+    // data buku kelima
+    favorit.judulBuku[4] = "Teluk Alaska";
+    favorit.pengarang[4] = "Eka Aryani";
+    favorit.penerbit[4] = "Bumi Semesta Media";
+    favorit.tebalHalaman[4] = 408;
+    favorit.hargaBuku[4] = 99000;
+
+    // menampilkan seluruh informasi buku favorit
+    cout << "============ DAFTAR BUKU FAVORIT SAYA ============" << endl;
+    // perulangan for untuk menampilkan data masing-masing buku
+    for (int i=0; i < 5; i++) {
+        cout << "\n \tBuku ke-" << i+1 << endl;
+        cout << "\tJudul Buku    : " << favorit.judulBuku[i] << endl;
+        cout << "\tPengarang     : " << favorit.pengarang[i] << endl;
+        cout << "\tPenerbit      : " << favorit.penerbit[i] << endl;
+        cout << "\tTebal Halaman : " << favorit.tebalHalaman[i] << " halaman" << endl;
+        cout << "\tHarga Buku    : Rp " << favorit.hargaBuku[i] << endl;
+    }
+    // return sebagai kode bahwa program telah selesai dan berhasil
+    return 0;
+}
 
 ```
+Kode tersebut digunakan untuk menampilkan data tentang buku favorit dengan panjang 5 array sehingga terdapat 5 buku favorit. Kategori buku terdiri atas judulBuku, pengarang, penerbit, tebalHalaman, dan hargaBuku. Program tersebut tidak menggunakan _input user_ karena datanya langsung diisi pada kode program. 
 
+Pada `struct buku { };` berisi kode-kode deklarasi struct buku tersebut yaitu judul buku, pengarang, dan penerbit yang bertipe data string, serta tebal halaman dan harga buku yang bertipe integer. `string judulBuku;`, `string pengarang;`, `string penerbit;`, `int tebalHalaman;`, `int hargaBuku;` merupakan bentuk deklarasinya. 
+
+#### Penjelasan main program:
+- `favorit.judulBuku[i]` digunakan untuk memasukkan data judul buku. 
+- `favorit.pengarang[i]` digunakan untuk memasukkan data pengarang buku.
+- `favorit.penerbit[i]` digunakan untuk memasukkan data penerbit buku.
+- `favorit.tebalHalaman[i]` digunakan untuk memasukkan data tebal halaman buku.
+- `favorit.hargaBuku[i]` digunakan untuk memasukkan data harga buku.
+
+`[i]` artinya indeks, digunakan untuk mengetahui posisi buku ke berapa yang datanya sedang dimasukkan. Karena panjang arraynya adalah 5, maka i-nya terdiri atas 0-4. Berikut penjelasan singkatnya.
+
+- `favorit.judulBuku[1] = "Insecurity is My Middle Name";` merupakan judul buku yang terletak pada indeks ke-1 yaitu "Insecurity is My Middle name".
+- `favorit.pengarang[1] = "Alvi Syahrin";` merupakan pengarang buku yang terletak pada indeks ke-1 yaitu Alvi Syahrin.
+- `favorit.penerbit[1] = "Kawah Media";` merupakan penerbit buku yang terletak pada indeks ke-1 yaitu Kawah Media.
+- `favorit.tebalHalaman[1] = 264;` merupakan tebal halaman buku yang terletak pada indeks ke-1 yaitu sebanyak 264 halaman.
+- `favorit.hargaBuku[1] = 99000;` merupakan harga buku yang terletak pada indeks ke-1 yaitu Rp99.000,00.
+
+Setelah data dimasukkan pada kode-kode di atas, buatlah kode untuk menampilkan data-data tersebut yaitu dengan menggunakan cout. `cout << "============ DAFTAR BUKU FAVORIT SAYA ============" << endl;` akan menampilkan _head_ atau _title of the program_ yaitu Daftar Buku Favorit Saya. 
+- `cout << "\tJudul Buku : " << favorit.judulBuku[i] << endl;` digunakan untuk menampilkan judul buku dengan memanggil kode `favorit.judulBuku[i]` untuk menampilkan data buku pada suatu indeks tertentu pada [i].
+- `cout << "\tPengarang : " << favorit.pengarang[i] << endl;` digunakan untuk menampilkan pengarang buku dengan memanggil kode `favorit.pengarang[i]` untuk menampilkan data buku pada suatu indeks tertentu pada [i].
+- `cout << "\tPenerbit : " << favorit.penerbit[i] << endl;` digunakan untuk menampilkan penerbit buku dengan memanggil kode `favorit.penerbit[i]` untuk menampilkan data buku pada suatu indeks tertentu pada [i].
+- `cout << "\tTebal Halaman: " << favorit.tebalHalaman[i] << " halaman" << endl;`digunakan untuk menampilkan tebal halaman buku dengan memanggil kode `favorit.tebalHalaman[i]` untuk menampilkan data buku pada suatu indeks tertentu pada [i].
+- `cout << "\tHarga Buku : Rp " << favorit.hargaBuku[i] << endl;` digunakan untuk menampilkan harga buku dengan memanggil kode `favorit.hargaBuku[i]` untuk menampilkan data buku pada suatu indeks tertentu pada [i].
+- `/t` digunakan untuk membuat indentasi atau _space_ kosong pada suatu kode sehingga dapat dibaca dengan lebih terstruktur, fungsinya hampir sama seperti tab (membuat data lebih memiliki awalan yang agak menjorok).
 
 
 ## Referensi
