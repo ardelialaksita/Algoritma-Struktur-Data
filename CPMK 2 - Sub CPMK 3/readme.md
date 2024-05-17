@@ -266,14 +266,14 @@ Kode tersebut digunakan untuk mencari kata atau data pada sebuah array dengan me
 - `cetakdata(dataArray);` akan memanggil fungsi untuk menjalankan fungsi void cetakdata.
 - `binarysearch(dataArray, word);` akan memanggil fungsi untuk menjalankan pencarian dengan algoritma binary search.
 
-#### Output:
-
+### Output:
+![Cuplikan layar 2024-05-17 082754](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/52ee2b97-1f03-4e7c-93f8-bf1d6328e3e1)
 
 #### Penjelasan input oleh user:
 Pada **"Kata apa yang ingin Anda cari pada data tersebut? : "**, user memasukkan kata bola untuk dilakukan pencarian pada array tersebut. Jika bola ada di dalam array, maka akan mencetak index atau lokasi data "bola" tersebut. Namun, apabila tidak ada bola di array tersebut, maka akan mencetak "Data tidak ditemukan". Ternyata bola terdapat pada array tersebut yaitu pada index ke- 6 seperti yang telah ditampilkan pada output di atas. 
 
-#### Full code of screenshot:
-
+### Full code of screenshot:
+![Cuplikan layar 2024-05-17 082716](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/022759a8-4f2c-4885-a090-d32820ba0d8a)
 
 
 ## Referensi
