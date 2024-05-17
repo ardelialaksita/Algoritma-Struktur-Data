@@ -125,6 +125,8 @@ int main()
 }
 
 ```
+### Output:
+![Modul 4  Unguided 1 Output](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/24e4f2ad-8465-4af8-b31c-740b4ce8cbf2)
 
 Kode tersebut digunakan untuk mencari sebuah huruf pada sebuah kalimat yang sudah diinput dengan menggunakan Binary Search. Program tersebut juga akan menampilkan jumlah huruf vokal dan konsonan pada kalimat yang diinputkan oleh user. Pencarian menggunakan binary search dilakukan dengan mencari dan mendeklarasikan indeks awal, tengah, dan akhir. Kemudian, data array dibagi menjadi 2 dengan indeks tengah sebagai **midlle** atau patokan untuk melakukan pengecekan data. Kodenya yaitu `tengah = (awal + akhir) / 2;`. Apabila data atau huruf yang dicari lebih kecil dari indeks tengah, maka pencarian akan dilakukan pada data sebelum nilai tengah dengan menjalankan kode `awal = tengah + 1;`. Apabila data atau huruf yang dicari lebih besar dari indeks tengah, maka pencarian akan dilakukan pada data setelah nilai tengah dengan menjalankan kode `akhir = tengah - 1;`.
 
@@ -149,6 +151,9 @@ Pertama-tama, user akan diminta untuk memasukkan kalimat dengan huruf kecil pada
 - **Huruf 'a' ditemukan dalam kalimat.** artinya huruf 'a' ada pada kalimat "arra is a cat miaw".
 - **Jumlah huruf vokal dalam kalimat: 7** artinya terdapat 7 huruf vokal pada kalimat tersebut yaitu a, a, i, a, a, i, a.
 - **Jumlah huruf konsonan dalam kalimat: 7** artinya terdapat 7 huruf konsonan pada kalimat tersebut yaitu r, r, s, c, t, m, w.
+
+### Full code of screenshot:
+![Modul 4  Unguided 2 Full SS (1)](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/74b485cf-110e-4937-817b-75d1b6b9f16c)
 
 
 ## Soal 3
