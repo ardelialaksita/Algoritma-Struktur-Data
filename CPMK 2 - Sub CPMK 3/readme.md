@@ -153,7 +153,7 @@ Pertama-tama, user akan diminta untuk memasukkan kalimat dengan huruf kecil pada
 - **Jumlah huruf konsonan dalam kalimat: 7** artinya terdapat 7 huruf konsonan pada kalimat tersebut yaitu r, r, s, c, t, m, w.
 
 ### Full code of screenshot:
-![Modul 4  Unguided 2 Full SS (1)](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/74b485cf-110e-4937-817b-75d1b6b9f16c)
+![Modul 4  Unguided 1 Full SS (1)](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/4e80df6d-fdc9-4f53-941c-00897442f5a4)
 
 
 ## Soal 3
