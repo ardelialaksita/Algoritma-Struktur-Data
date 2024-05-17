@@ -154,7 +154,125 @@ Pertama-tama, user akan diminta untuk memasukkan kalimat dengan huruf kecil pada
 ## Soal 3
 ### 3. Tulislah sebuah fungsi program dengan kondisi sebagai berikut: Terdapat sebuah sorted array of strings yang mana terdapat string kosong diantaranya, carilah lokasi/indeks dari kata yang dicari! (30 Poin)
 Input: bola, {“Adi”,””,””, “”, “bermain”, “”, “bola”, “”, “”, “sedang”}
+
 Output: 6
+
+**Kode Program**
+```C++
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+// fungsi binary search untuk menemukan kayta
+void binarysearch(const vector<string>& dataArray, const string& word) {
+    int left = 0;
+    int right = static_cast<int>(dataArray.size()) - 1;
+
+    // apabila data di sisi kiri lebih kecil atau sama dengan data kanan
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        // jika elemen tengah adalah string kosong, cari elemen non-kosong di sekitarnya
+        if (dataArray[mid].empty()) {
+            int l = mid - 1;
+            int r = mid + 1;
+
+            while (true) {
+                if (l < left && r > right) {
+                    cout << "\nData tidak ditemukan\n";
+                    return; 
+                } else if (r <= right && !dataArray[r].empty()) {
+                    mid = r;
+                    break;
+                } else if (l >= left && !dataArray[l].empty()) {
+                    mid = l;
+                    break;
+                }
+                r++;
+                l--;
+            }
+        }
+
+        // perbandingan menggunakan binary search 
+        // jika array di tengah (setelah diurutkan) memiliki isi yang sama seperti kata yang dicari
+        if (dataArray[mid] == word) {
+            // mencetak data ditemukan pada index ke berapa
+            cout << "\nData ditemukan pada index ke- " << mid << endl;
+            return;
+        } 
+        // jika array di tengah (setelah diurutkan) lebih kecil daripda kata yang dicari
+        else if (dataArray[mid] < word) {
+            // pencarian dilakukan pada sisi bagian kiri dengan operasi mid array + 1
+            left = mid + 1;
+        } 
+        // pencarian dilakukan pada sisi bagian kanan dengan operasi mid array - 1
+        else {
+            right = mid - 1;
+        }
+    }
+
+    // tampilkan data tidak ditemukan jika data tidak ada di dalam array
+    cout << "\nData tidak ditemukan\n";
+}
+
+// fungsi void untuk menampilkan data array 
+void cetakdata(const vector<string>& data) {
+    cout << "Data: {";
+    for (size_t i = 0; i < data.size(); ++i) {
+        cout << "\"" << data[i] << "\"";
+        if (i != data.size() - 1) {
+            cout << ", ";
+        }
+    }
+    cout << "}" << endl;
+}
+
+// main program (program utama)
+int main() {
+    // deklarasi word
+    string word;
+    
+    // cetak header pada program
+    cout << "-------------------------------------------------------------------------------------" << endl;
+    cout << "================ Program Mencari Kata Menggunakan Binary Search =====================" << endl;
+    
+    // data yang mengandung string kosong
+    vector<string> dataArray = {"Adi", "", "", "", "bermain", "", "bola", "", "", "sedang"};
+
+    // panggil fungsi cetakData
+    cetakdata(dataArray);
+    
+    // input kata yang ingin dicari
+    cout << "Kata apa yang ingin Anda cari pada data tersebut? : ";
+    cin >> word;
+
+    // panggil fungsi untuk lakukan pencarian dengan binary search
+    binarysearch(dataArray, word);
+
+    // cetak footer pada program
+    cout << "-------------------------------------------------------------------------------------" << endl;
+
+    return 0;
+}
+
+```
+Kode tersebut digunakan untuk mencari kata atau data pada sebuah array dengan menggunakan Binary Search. Penjelasan kodenya yaitu sebagai berikut.
+- Fungsi `void binarysearch()` digunakan untuk melakukan pencarian menggunakan binary search. Progrma akan dijalankan saat fungsi dipanggil pada main program.
+- Fungsi `void cetakdata()` digunakan untuk menampilkan seluruh data di dalam array. User akan mencari suatu kata atau data di dalam array tersebut. 
+- `if (dataArray[mid] == word)` artinya apabila data tengah array sama seperti kata yang dicari, maka program akan menjalankan `cout << "\nData ditemukan pada index ke- " << mid << endl;` dan akan mencetak lokasi atau index data tersebut. Pencarian berhenti karena data telah ditemukan. 
+- `dataArray[mid] < word` artinya apabila data tengah array lebih kecil dari kata yang dicari, maka akan menjalankan pencarian di sisi bagian kiri dengan mid (data tengah array) dikurangi dengan 1. Sebaliknya, apabila data tengah array lebih besar dari kata yang dicari,siaka akan menjalankan pencarian selanjutnya di sisi bagian kanan dengan mid (data tengah array) ditambah dengan 1. 
+- `dataArray = {"Adi", "", "", "", "bermain", "", "bola", "", "", "sedang"};` merupakan data di dalam array yang akan user cari salah satu datanya. 
+- `cetakdata(dataArray);` akan memanggil fungsi untuk menjalankan fungsi void cetakdata.
+- `binarysearch(dataArray, word);` akan memanggil fungsi untuk menjalankan pencarian dengan algoritma binary search.
+
+#### Output:
+
+
+#### Penjelasan input oleh user:
+Pada **"Kata apa yang ingin Anda cari pada data tersebut? : "**, user memasukkan kata bola untuk dilakukan pencarian pada array tersebut. Jika bola ada di dalam array, maka akan mencetak index atau lokasi data "bola" tersebut. Namun, apabila tidak ada bola di array tersebut, maka akan mencetak "Data tidak ditemukan". Ternyata bola terdapat pada array tersebut yaitu pada index ke- 6 seperti yang telah ditampilkan pada output di atas. 
+
+#### Full code of screenshot:
 
 
 
