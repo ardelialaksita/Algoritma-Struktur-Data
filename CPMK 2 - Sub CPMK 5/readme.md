@@ -1,200 +1,238 @@
-# <h1 align="center">Tugas CPMK 2 S CPMK 2</h1>
+# <h1 align="center">Tugas CPMK 2 Sub CPMK 5 (Linked List)</h1>
 <p align="center">2311110051 - Ardelia Rachma Laksita</p>
 
 ## Table of Contents
 1. [Soal 1](#soal-1)
 2. [Soal 2](#soal-2)
+3. [Soal 3](#soal-3)
 
 ## Soal 1
-### 1. Tulislah sebuah program dari operasi queue seperti enqueue/add, dequeue/remove, isEmpty, isFull, dll(min 5)! (60 Poin)
-Kode Program
+### 1. Buatlah sebuah fungsi program untuk menghilangkan duplikasi data pada unsorted linked list (single atau double atau circular) (40 Poin)
+
+**Kode Program**
+
+```C++
+
+```
+
+## Soal 2
+### 2. Buatlah sebuah algoritma dan fungsi program untuk menghapus node di tengah single linked list! (35 Poin)
+**Kode Program**
+
+```C++
+
+```
+
+
+## Soal 3
+### 3. Buatlah sebuah program untuk mengecek apakah linked list adalah sebuah palindrom! (50 Poin)
+**Kode Program**
 
 ```C++
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
 
-// PROGRAM QUEUE MENGGUNAKAN LINKED LIST BERISI ATRIBUT NAMA DAN NIM MAHASISWA
-// struct Node
-struct Node {
-    // deklarasi Nama dan Nim
-    string Nama;
-    string Nim;
-    Node *next;
-};
-
-// class Queue
-class Queue {
-// bagian public dari class Queue
-public:
-    Queue() {
-        // deklarasi size, data front dan data back
+// PROGRAM PENGECEKAN PALINDROME
+// class deret huruf 
+class deretHuruf {
+    // bagian public dari class deretHuruf
+    public:
+    deretHuruf() {
+        head = NULL;
+        tail = NULL;
         size = 0;
-        front = NULL;
-        back = NULL;
     }
 
-    // mengecek apakah antrian penuh atau tidak
-    bool isFull() {
-        return false;
-    }
+    // menambahkan huruf
+    void push(char hurufAwal) {
+        node* temp = new node;
+        temp->words = hurufAwal;
+        temp->next = NULL;
 
-    // mengecek apakah antrian kosong atau tidak
-    bool isEmpty() {
-    return size == 0;
-    }
-
-    // tambahkan data ke dalam antrian 
-    void enqueueAntrian(string Nama, string Nim) {
-        Node* baru = new Node();
-        baru->Nama = Nama;
-        baru->Nim = Nim;
-        baru->next = NULL;
-
-        // apabila antrian kosong, maka front dan back dimulai dari node baru
-        if (isEmpty()) {
-            front = baru;
-            back = baru;
-        // apabila antrian tidak kosong, maka dimulai dari node sebelumnya (back)
-        } else {
-            back->next = baru;
-            back = baru;
+        if (size == 0) {
+            head = temp;
+            tail = temp;
+            head->prev = NULL;
         }
-
+        else {
+            tail->next = temp;
+            temp->prev = tail;
+            tail = temp;
+        }
         size++;
     }
 
-    // hapus data dalam antrian (otomatis menghapus front)
-    void dequeueAntrian() {
-        if (isEmpty()) {
-            cout << "Antrian Kosong" << endl;
-        } else {
-            Node* temp = front;
-            front = front->next;
+    // menghapus huruf
+    char pop() {
+        char words = head->words;
+        if (head == tail) {
+            delete head;
+        }
+        else {
+            node* temp = head;
+            head = head->next;
+            head->prev;
+            temp->next = NULL;
             delete temp;
-            size--;
         }
+        size--;
+        return words;
     }
+    
+    // bagian private dari class deretHuruf berisi struct dari node
+    private:
+    struct node {
+        char words;
+        node* next;
+        node* prev;
+    };
 
-    // lihat jumlah data dalam antrian 
-    int countQueue() {
-        return size;
-    }
-
-    // hapus seluruh data dalam antrian (kosongkan antrian)
-    void clearQueue() {
-        while (!isEmpty()) {
-            dequeueAntrian();
-        }
-    }
-
-    // lihat data antrian teller dengan atribut nama dan NIM mahasiswa
-    void viewQueue() {
-        cout << "Data antrian teller: " << endl;
-        Node* current = front;
-        for (int i = 0; i < size; i++) {
-            cout << i + 1 << ". Nama: " << current->Nama << " (Nim: " << current->Nim << ")" << endl;
-            current = current->next;
-        }
-    }
-
-    ~Queue() {
-        clearQueue();
-    }
-
-// bagian private dari class Queue
-private:
-    // deklarasi data front, back, dan size
-    Node* front;
-    Node* back;
+    // deklarasi size, words, dhead, dan tail menggunakan pointer node dalam private class deretHuruf
     int size;
+    char words;
+    node* head;
+    node* tail;
 };
+
+// class stack (tumpukan) huruf
+class stack {
+    // bagian public dari class stack
+    public:
+    stack() {
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+
+    // menambahkan huruf
+    void push (char hurufAwal) {
+        node* temp = new node;
+        temp->words = hurufAwal;
+        temp->next = NULL;
+
+        if (size == 0) {
+            head = temp;
+            tail = temp;
+            tail->prev = NULL;
+        }
+
+        else {
+            tail->next = temp;
+            temp->prev = tail;
+            tail = temp;
+        }
+        size++;
+    }
+
+    // menghapus huruf
+    char pop() {
+        words = tail->words;
+        if (head == tail) {
+            delete head;  
+        }
+
+        else{
+            node* temp = tail;
+            tail = tail->prev;
+            tail->next = NULL;
+            temp->prev = NULL;
+            delete temp;
+        }
+        size--;
+        return words;
+    }
+
+    // bagian private dari class stack berisi struct
+    private:
+    struct node{
+        char words;
+        node* next;
+        node *prev;
+    };
+
+    // deklarasi size, words, head, dan tail dalam private class stack
+    int size;
+    char words;
+    node* head;
+    node* tail;
+};
+
 
 // main program (program utama)
 int main() {
-    // deklarasi class Queue serta tipe data Nama dan Nim
-    Queue queueTeller;
-    string Nama, Nim;
 
-    // user input nama dan NIM mahasiswa pertama
-    cout << "Masukkan Nama mahasiswa: ";
-    cin >> Nama;
-    cout << "Masukkan NIM mahasiswa: ";
-    cin >> Nim;
-    // panggil fungsi untuk menambahkan data ke dalam antrian
-    queueTeller.enqueueAntrian(Nama, Nim);
+    // deklarasi kata, hurufAwal, hurufAkhir, checkAgain, firstWord pada class stack dan lastWord pada class words
+    string kata;
+    char hurufAwal;
+    char hurufAkhir;
+    char checkAgain;   
+    stack firstWord;
+    deretHuruf lastWord;
+    
+    // deklarasi palindrome
+    bool palindrome = true;
+    // tampilkan head atau judul dari program 
+    cout << "=== PALINDROME WORDS CHECK ===" << endl;
 
-    // user input nama dan NIM mahasiswa kedua
-    cout << "Masukkan Nama mahasiswa: ";
-    cin >> Nama;
-    cout << "Masukkan NIM mahasiswa: ";
-    cin >> Nim;
-    // panggil fungsi untuk menambahkan data ke dalam antrian
-    queueTeller.enqueueAntrian(Nama, Nim);
-
-    // lihat data di dalam antrian saat ini
-    queueTeller.viewQueue();
-    // tampilkan jumlah atau banyak data dalam antrian saat ini
-    cout << "Jumlah antrian = " << queueTeller.countQueue() << endl;
+    // user menginput kata
+    cout << "Masukkan 1 kata: ";
+    cin >> kata;
     cout << endl;
 
-    // hapus antrian (data yang dihapus adalah front)
-    queueTeller.dequeueAntrian();
-    // lihat data di dalam antrian saat ini (setelah data front sebelumnya dihapus)
-    queueTeller.viewQueue();
-    // tampilkan jumlah atau banyak data dalam antrian saat ini 
-    cout << "Jumlah antrian = " << queueTeller.countQueue() << endl;
+    // perulangan for untuk push firstWord dan lastWord 
+    for (int i = 0; i < kata.length(); i++) {
+        firstWord.push(tolower(kata[i]));
+        lastWord.push(tolower(kata[i]));
+    }
+
+    // perulangan for untuk pop dan pengecekan palindrome
+    for (int i = 0; i < kata.length(); i++) {
+        char hurufAwal = firstWord.pop();
+        char hurufAkhir = lastWord.pop();
+
+        if (hurufAwal != hurufAkhir) {
+            cout << hurufAwal << " != " << hurufAkhir << endl;
+            palindrome = false;
+        } else {
+            cout << hurufAwal << " = " << hurufAkhir << endl; 
+        }
+    }
+
     cout << endl;
 
-    // bersihkan atau hapus seluruh antrian sehingga antrian kosong
-    queueTeller.clearQueue();
-    // lihat data di dalam antrian saat ini (setelah semua antrian dihapus)
-    queueTeller.viewQueue();
-    // tampilkan jumlah atau banyak data dalam antrian saat ini
-    cout << "Jumlah antrian = " << queueTeller.countQueue() << endl;
+    // tampilkan hasil
+    if (palindrome) {
+        cout << "Kata tersebut merupakan kata palindrome." << endl;
+        cout << "Semua huruf pada kata tersebut sama sehingga akan menghasilkan urutan huruf yang sama apabila kata dibalik." << endl;
+    } else {
+        cout << "Kata tersebut bukan merupakan kata palindrome." << endl;
+        cout << "Terdapat urutan huruf yang tidak sama sehingga apabila kata tersebut dibalik maka tidak akan menghasilkan bacaan yang sama." << endl;
+    }
+    cout << "================================================================================================================================" << endl;
     cout << endl;
-
     return 0;
 }
 
 ```
-Kode tersebut merupakan program yang menerapkan queue dengan konsep linked list sehingga terdapat struct dan class. Kode tersebut digunakan untuk menambahkan, menghapus, menghitung, mengosongkan, dan menampilkan data antrian dengan atribut nama dan NIM mahasiswa. Pada main program, user perlu menginputkan nama dan NIM mahasiswa melalui terminal setelah kode dijalankan. Tidak diperlukan class pada queue dengan array. Sedangkan pada linked list terdapat class Queue, program harus menggunakan variabel yang kemudian memanggil fungsi-fungsi di dalam kelas. `queueTeller` merupakan variabel, sedangkan `enqueueAntrian` merupakan fungsi yang digunakan dengan cara memanggil fungsi tersebut dari kelas. Sebelum menggunakan fungsi-fungsi di dalam class Queue, queueTeller harus dideklarasikan dulu dengan class yang akan digunakan sehingga deklarasinya adalah `Queue queueTeller;`. Berikut penjelasan kodenya:
+Kode tersebut digunakan untuk mengecek apakah suatu kata palindrome atau tidak. Apabila kata tersebut dibalik, maka akan menghasilkan urutan huruf yang sama seperti kata yang belum dibalik. Terdapat dua class pada program tersebut yaitu class deretHuruf dan class stack. Terdapat push yang digunakan untuk menambahkan data, serta terdapat pula pop yang digunakan untuk menghapus data. Pada bagian private masing-masing class harus terdapat deklarasi variabel. Tolower digunakan untuk mengkonversi semua huruf kapital menjadi kecil. 
 
-Di dalam bagian dari private class Queue terdapat deklarasi data front, back, dan size.
-
-Di dalam bagian dari public class Queue terdapat kode-kode berikut.
-- `bool isFull()` digunakan untuk mengecek apakah antrian penuh atau tidak.
-- `bool isEmpty()` digunakan untuk mengecek apakah antrian kosong atau tidak.
-- `void enqueueAntrian(string data)` digunakan untuk menambahkan antrian baru.
-- `void dequeueAntrian()` digunakan untuk menghapus antrian. Antrian yang dihapus yaitu data front (depan).
-- `int countQueue()` digunakan untuk menghitung jumlah seluruh data yang saat ini ada di dalam antrian.
-- `void clearQueue()` digunakan untuk menghapus seluruh data di dalam antrian sehingga antrian menjadi kosong.
-- `void viewQueue()` digunakan untuk melihat data yang saat ini berada di dalam antrian.
-
-#### Penjelasan Main Program:
-- `cout << "Masukkan Nama mahasiswa: ";` akan meminta user untuk memasukkan nama mahasiswa.
-- `cin >> Nama;` akan menampilkan nama yang telah diinput oleh user.
-- `cout << "Masukkan NIM mahasiswa: ";` akan meminta user untuk memasukkan nim mahasiswa.
-- `cin >> Nim;` akan menampilkan nim yang telah diinput oleh user.
-- `queueTeller.enqueueAntrian(Nama, Nim);` akan memanggil fungsi enqueueAntrian di dalam class Queue untuk menambahkan data nama dan  nim yang telah diinput oleh user.
-- Selanjutnya, data saat ini ditampilkan dengan `queueTeller.viewQueue();`.
-- `cout << "Jumlah antrian = " << queueTeller.countQueue() << endl;` akan menampilkan banyaknya data dalam antrian.
-
-**Penjelasan Output :**
-
-User memasukkan nama dan nim mahasiswa yang pertama yaitu Aliana dengan NIM 231111008. Kemudian, user memasukkan nama dan nim mahasiswa yang kedua yaitu Ardelia dengan NIM 2311110051. Kemudian, data ditampilkan sehingga menghasilkan output sebagai berikut.
-
-Selanjutnya, program akan menjalankan dequeue sehingga menghapus data front pada antrian tersebut. Data yang dihapus yaitu Aliana dengan NIM 2311110008. Saat ini, hanya ada 1 antrian yaitu Ardelia dengan NIM 2311110051 yang naik menjadi posisi 1. Berikut tampilan outputnya.
-
-Terakhir, user mengosongkan list menggunakan clearQueue sehingga seluruh antrian dihapus. Saat ini tidak ada antrian sama sekali sehingga jumlah data antriannya adalah 0. Berikut output yang dihasilkan.
+#### Output dan Penjelasan:
 
 
-## Soal 2
-### 2. Sebuah selter hewan terlantar, yang mana hanya menerima kucing dan anjing, menerapkan konsep “first in, first out” dalam proses adopsi. Orang-orang yang hendak mengadopsi harus mengikuti aturan berikut: 1) mengadopsi hewan yang paling “tua” (berdasarkan waktu masuk ke selter) dan tidak dapat memilih kucing atau anjing; 2) memilih antara kucing atau anjing, namun akan menerima yang paling tua. Buatlah data struktur untuk mengimplementasikan kondisi tersebut, silahkan menggunakan beberapa operasi queue seperti enquee, dequeueAny, dequeueDog, dan dequeueCat. (40 Poin)
-Kode Program
+Pada output tersebut, kata yang diinput oleh user adalah **Malam**. Selanjutnya, program melakukan pengecekan palindrom menggunakan `for (int i = 0; i < kata.length(); i++)`, `char hurufAwal = firstWord.pop();`, dan `char hurufAkhir = lastWord.pop();`. Karena saat huruf-huruf yang ada pada kata malam dibalik menghasilkan urutan yang sama, maka malam termasuk kata palindrome. Huruf M pada awalan kata Malam yang awalnya menggunakan kapital telah diubah oleh program menjadi huruf kecil menggunakan tolower sehingga pengecekan palindromenya sudah dalam keadaan huruf kecil semua. 
 
-```C++
 
-```
+Pada output tersebut, kata yang diinput oleh user adalah **Pagi**. Selanjutnya, program melakukan pengecekan palindrom menggunakan `for (int i = 0; i < kata.length(); i++)`, `char hurufAwal = firstWord.pop();`, dan `char hurufAkhir = lastWord.pop();`. Karena saat huruf-huruf yang ada pada kata pagi dibalik tidak menghasilkan urutan yang sama yaitu igap, maka pagi bukan termasuk kata palindrome. Huruf P pada awalan kata Pagi yang awalnya menggunakan kapital telah diubah oleh program menjadi huruf kecil menggunakan tolower sehingga pengecekan palindromenya sudah dalam keadaan huruf kecil semua. 
 
+#### Penjelasan main program:
+- Variabel-variabel yang digunakan dalam program harus dideklarasikan tipe datanya terlebih dahulu. Tipe data variabel kata adalah string karena terdapat lebih dari 1 karakter. Tipe data pada variabel hurufAwal dan hurufAkhir adalah char karena hanya memerlukan 1 karakter. hurufAwal merupakan urutan huruf dengan urutan mulai dari awal hingga akhir yang kemudian akan dipasangkan dengan hurufAkhir yang urutannya dimulai dari akhir menuju ke huruf awal. Huruf pertama diperiksa palindromnya dengan huruf terakhir. Apabila tidak sama, maka akan menghasilkan **hurufAwal != hurufAkhir**. Apabila sama, akan menghasilkan **hurufAwal = hurufAkhir**.
+- `bool palindrome = true;` merupakan deklarasi palindrome yaitu tipe data boolean dengan deklarasi true.
+- `cout << "=== PALINDROME WORDS CHECK ===" << endl;` digunakan untuk mencetak _head of the program_ atau judul program tersebut.
+- `cout << "Masukkan 1 kata: ";` dan `cin >> kata;` digunakan untuk memasukkan kata yang akan diinput oleh user.
+- Pada perulangan for yang berisi `firstWord.push(tolower(kata[i]));` dan `lastWord.push(tolower(kata[i]));` digunakan untuk menambahkan huruf awal hingga akhir dengan urutan yang sesuai dan urutan berkebalikan. Huruf yang masih dalam bentuk kapital akan diubah menjadi huruf kecil semua menggunakan tolower.
+- Pada perulangan for yang berisi `char hurufAwal = firstWord.pop();` dan `char hurufAkhir = lastWord.pop();` digunakan untuk mengecek apakah suatu kata palindrome atau tidak. Urutan huruf dari awal ke akhir akan diperiksa apakah sama seperti urutan huruf dari akhir ke awal atau tidak.
+
+#### Full code Screenshot:
 

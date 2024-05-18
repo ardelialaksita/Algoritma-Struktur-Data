@@ -18,7 +18,24 @@ Searching merupakan proses pencarian suatu elemen tertentu. Pada dasarnya, algor
 
 #### Runtime dari best case dan worst case masing-masing algoritma searching
 
+**Binary Search**
 
+![Cuplikan layar 2024-05-17 100251](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/85d7b248-c0e3-4a44-a3dd-5962dfbbed25)
+
+
+Binary search bisa langsung menentukan beberapa perkiraan karena data telah dibagi menjadi 2 melalui mid index. Kita tidak perlu melakukan pencarian dengan menelusuri elemen secara satu persatu. Hanya beberapa perbandingan yang dilakukan yaitu dengan membandingkan mid index dengan angka yang dicari (apakah lebih besar, lebih kecil, atau sama). Dalam setiap pengerjaan binary search, jumlah langkah yang kita ambil mungkin berbeda-beda, namun pada array dengan 100 elemen, 7 adalah worst case scenario waktu yang diperlukan untuk menyelesaikan binary search. **Big O Notation untuk binary search adalah O(log n).**
+
+- Best case : O(1), yaitu terjadi saat elemen yang dicari ditemukan pada mid index atau nilainya sama seperti mid index (di tengah-tengah array).
+- Worst case : O(log n), yaitu terjadi saat elemen yang dicari tidak ditemukan dan seluruh array harus dipartisi secara berulang sampai elemennya ditemukan (memiiki nilai yang sama seperti mid index). 
+
+**Linear Search**
+
+![Cuplikan layar 2024-05-17 100218](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/cc892dd9-6033-4288-b92e-ffdaf54210f5)
+
+Linear search membandingkan satu per satu elemen dalam suatu array secara berurutan hingga menemukan nilai yang ingin ditemukan. Dengan simple search, langkah yang diperlukan untuk menyelesaikan algoritma adalah sama dengan jumlah elemen dari array tersebut. **Big O Notation untuk simple search adalah O(n)**, dengan n adalah jumlah elemen dalam suatu array. Big O Notation memastikan bahwa simple search tidak mungkin melebihi O(n) kali. 
+
+- Best case : O(1), yaitu terjadi saat elemen yang dicari ditemukan pada elemen pertama array sehingga pencarian selesai dengan cepat.
+- Worst case : O(n), yaitu terjadi saat elemen yang dicari tidak segera ditemukan sehingga perbandingan elemen secara satu per satu harus tetap ditemukan melalui iterasi seluruh array.
 
 ## Soal 2
 ### 2. Buatlah fungsi dari salah satu algoritma searching pada soal nomor 1, dan berikan penjelasan pada program tersebut 
@@ -125,6 +142,8 @@ int main()
 }
 
 ```
+### Output:
+![Modul 4  Unguided 1 Output](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/24e4f2ad-8465-4af8-b31c-740b4ce8cbf2)
 
 Kode tersebut digunakan untuk mencari sebuah huruf pada sebuah kalimat yang sudah diinput dengan menggunakan Binary Search. Program tersebut juga akan menampilkan jumlah huruf vokal dan konsonan pada kalimat yang diinputkan oleh user. Pencarian menggunakan binary search dilakukan dengan mencari dan mendeklarasikan indeks awal, tengah, dan akhir. Kemudian, data array dibagi menjadi 2 dengan indeks tengah sebagai **midlle** atau patokan untuk melakukan pengecekan data. Kodenya yaitu `tengah = (awal + akhir) / 2;`. Apabila data atau huruf yang dicari lebih kecil dari indeks tengah, maka pencarian akan dilakukan pada data sebelum nilai tengah dengan menjalankan kode `awal = tengah + 1;`. Apabila data atau huruf yang dicari lebih besar dari indeks tengah, maka pencarian akan dilakukan pada data setelah nilai tengah dengan menjalankan kode `akhir = tengah - 1;`.
 
@@ -149,6 +168,9 @@ Pertama-tama, user akan diminta untuk memasukkan kalimat dengan huruf kecil pada
 - **Huruf 'a' ditemukan dalam kalimat.** artinya huruf 'a' ada pada kalimat "arra is a cat miaw".
 - **Jumlah huruf vokal dalam kalimat: 7** artinya terdapat 7 huruf vokal pada kalimat tersebut yaitu a, a, i, a, a, i, a.
 - **Jumlah huruf konsonan dalam kalimat: 7** artinya terdapat 7 huruf konsonan pada kalimat tersebut yaitu r, r, s, c, t, m, w.
+
+### Full code of screenshot:
+![Modul 4  Unguided 1 Full SS (1)](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/4e80df6d-fdc9-4f53-941c-00897442f5a4)
 
 
 ## Soal 3
@@ -266,18 +288,17 @@ Kode tersebut digunakan untuk mencari kata atau data pada sebuah array dengan me
 - `cetakdata(dataArray);` akan memanggil fungsi untuk menjalankan fungsi void cetakdata.
 - `binarysearch(dataArray, word);` akan memanggil fungsi untuk menjalankan pencarian dengan algoritma binary search.
 
-#### Output:
-
+### Output:
+![Cuplikan layar 2024-05-17 082754](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/52ee2b97-1f03-4e7c-93f8-bf1d6328e3e1)
 
 #### Penjelasan input oleh user:
 Pada **"Kata apa yang ingin Anda cari pada data tersebut? : "**, user memasukkan kata bola untuk dilakukan pencarian pada array tersebut. Jika bola ada di dalam array, maka akan mencetak index atau lokasi data "bola" tersebut. Namun, apabila tidak ada bola di array tersebut, maka akan mencetak "Data tidak ditemukan". Ternyata bola terdapat pada array tersebut yaitu pada index ke- 6 seperti yang telah ditampilkan pada output di atas. 
 
-#### Full code of screenshot:
-
+### Full code of screenshot:
+![Cuplikan layar 2024-05-17 082716](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/022759a8-4f2c-4885-a090-d32820ba0d8a)
 
 
 ## Referensi
 - [1] Guntara, R.G., Algoritma dan Pemrograman Dasar : Menggunakan Bahasa Pemrograman C++ dengan Contoh Kasus Aplikasi untuk Bisnis dan Manajemen. Edisi Pertama. Sulawesi Selatan : CV. Ruang Tentor, 2023.
 - [2] Pasaribu, S.A., Algoritma dan Pemrograman dalam Bahasa Pascal dan C++. Edisi Pertama. Yogyakarta : Deepublish, 2023.
 - [3] Putro, S.S. et al., Algoritma Pemrograman. Edisi Pertama. Malang : Media Nusa Creative (MNC Publishing), 2019.
-
