@@ -220,10 +220,10 @@ Kode tersebut digunakan untuk mengecek apakah suatu kata palindrome atau tidak. 
 
 #### Output dan Penjelasan:
 
-
+![Cuplikan layar 2024-05-06 200046](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/3f95a46b-8646-41da-91b0-de39a57ac60c)
 Pada output tersebut, kata yang diinput oleh user adalah **Malam**. Selanjutnya, program melakukan pengecekan palindrom menggunakan `for (int i = 0; i < kata.length(); i++)`, `char hurufAwal = firstWord.pop();`, dan `char hurufAkhir = lastWord.pop();`. Karena saat huruf-huruf yang ada pada kata malam dibalik menghasilkan urutan yang sama, maka malam termasuk kata palindrome. Huruf M pada awalan kata Malam yang awalnya menggunakan kapital telah diubah oleh program menjadi huruf kecil menggunakan tolower sehingga pengecekan palindromenya sudah dalam keadaan huruf kecil semua. 
 
-
+![Cuplikan layar 2024-05-06 200058](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/a46231bb-95ba-4601-9e52-7600644c4daf)
 Pada output tersebut, kata yang diinput oleh user adalah **Pagi**. Selanjutnya, program melakukan pengecekan palindrom menggunakan `for (int i = 0; i < kata.length(); i++)`, `char hurufAwal = firstWord.pop();`, dan `char hurufAkhir = lastWord.pop();`. Karena saat huruf-huruf yang ada pada kata pagi dibalik tidak menghasilkan urutan yang sama yaitu igap, maka pagi bukan termasuk kata palindrome. Huruf P pada awalan kata Pagi yang awalnya menggunakan kapital telah diubah oleh program menjadi huruf kecil menggunakan tolower sehingga pengecekan palindromenya sudah dalam keadaan huruf kecil semua. 
 
 #### Penjelasan main program:
@@ -235,4 +235,4 @@ Pada output tersebut, kata yang diinput oleh user adalah **Pagi**. Selanjutnya, 
 - Pada perulangan for yang berisi `char hurufAwal = firstWord.pop();` dan `char hurufAkhir = lastWord.pop();` digunakan untuk mengecek apakah suatu kata palindrome atau tidak. Urutan huruf dari awal ke akhir akan diperiksa apakah sama seperti urutan huruf dari akhir ke awal atau tidak.
 
 #### Full code Screenshot:
-
+![Cuplikan layar 2024-05-06 200024](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/a936a239-c282-4098-acce-539f35b653a4)
