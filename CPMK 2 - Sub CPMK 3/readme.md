@@ -26,7 +26,7 @@ Searching merupakan proses pencarian suatu elemen tertentu. Pada dasarnya, algor
 Binary search bisa langsung menentukan beberapa perkiraan karena data telah dibagi menjadi 2 melalui mid index. Kita tidak perlu melakukan pencarian dengan menelusuri elemen secara satu persatu. Hanya beberapa perbandingan yang dilakukan yaitu dengan membandingkan mid index dengan angka yang dicari (apakah lebih besar, lebih kecil, atau sama). Dalam setiap pengerjaan binary search, jumlah langkah yang kita ambil mungkin berbeda-beda, namun pada array dengan 100 elemen, 7 adalah worst case scenario waktu yang diperlukan untuk menyelesaikan binary search. **Big O Notation untuk binary search adalah O(log n).**
 
 - Best case : O(1), yaitu terjadi saat elemen yang dicari ditemukan pada mid index atau nilainya sama seperti mid index (di tengah-tengah array).
-- Worst case : o(log n), yaitu terjadi saat elemen yang dicari tidak ditemukan dan seluruh array harus dipartisi secara berulang sampai elemennya ditemukan (memiiki nilai yang sama seperti mid index). 
+- Worst case : O(log n), yaitu terjadi saat elemen yang dicari tidak ditemukan dan seluruh array harus dipartisi secara berulang sampai elemennya ditemukan (memiiki nilai yang sama seperti mid index). 
 
 **Linear Search**
 
