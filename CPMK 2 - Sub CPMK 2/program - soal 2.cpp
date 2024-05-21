@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// PROGRAM ASCENDING DAN DESCENDING SORT
+
 // sorting menggunakan insertion sort secara ascending (menaik)
 void insertion_sort_ascending(char arr[], int length) {
 
@@ -55,7 +57,6 @@ int main() {
 
     // deklarasi length untuk menyimpan panjang array
     int length;
-    int a;
     
     // user memasukkan panjang array
     cout << "Input (n) = ";
@@ -75,22 +76,22 @@ int main() {
     cout << endl;
     
     // tampilkan karakter sebelum sorting
-    int a;
     cout << "Urutan karakter sebelum sorting: " << endl;
-    print_array(a, length);
+    print_array(arr, length);
 
-    // peanggil fungsi untuk mengurutkan karakter secara ascending
-    insertion_sort_ascending(a, length);
+    // panggil fungsi untuk mengurutkan karakter secara ascending
+    insertion_sort_ascending(arr, length);
 
     // tampilkan karakter setelah diurutkan secara ascending
     cout << "\nUrutan karakter setelah ascending sort: " << endl;
-    print_array(a, length);
+    print_array(arr, length);
 
     // panggil fungsi untuk mengurutkan karakter secara descending
-    insertion_sort_descending(a, length);
+    insertion_sort_descending(arr, length);
     
     // tampilkan karakter setelah diurutkan secara descending
     cout << "\nUrutan karakter setelah descending sort: " << endl;
-    print_array(a, length);
+    print_array(arr, length);
 
+    return 0;
 }

@@ -1,123 +1,126 @@
 #include <iostream>
 #include <queue>
+#include <string>
 using namespace std;
 
-// PROGRAM ADOPSI KUCING DAN / ATAU ANJING
-// class animal
-class animal {
+// Kelas Hewan
+class Animal {
 public:
-    // deklarasi jenis dan waktu masuk (timeIn)
     string jenis;
-    int timeIn;
+    int timeAdd;
 
-    // kelola antrian
-    animal(string jenis, int timeIn) {
+    Animal(string jenis, int timeAdd) {
         this->jenis = jenis;
-        this->timeIn = timeIn;
+        this->timeAdd = timeAdd;
     }
 
-    friend ostream& operator<<(ostream& os, const animal& animal) {
-        os << animal.jenis << " masuk: " << animal.timeIn;
+    friend ostream& operator<<(ostream& os, const Animal& animal) {
+        os << animal.jenis << " masuk: " << animal.timeAdd;
         return os;
     }
 };
 
+// Kelas Shelter
 class Queue {
 public:
-    queue<animal> antrianHewan;
+    queue<Animal> antrianHewan;
 
-    // tambah hewan ke antrian
-    void enqueue(const animal& animal) {
-        antrianHewan.push(animal);
+    // Menambahkan hewan ke shelter
+    void enqueue(const Animal& animal) {
+        antrianHewan.emplace(animal);
     }
 
-    // hapus hewan dari antrian (bisa kucing maupun anjing)
-    animal dequeueAny() {
+    // Menghapus hewan tertua dari shelter
+    Animal dequeueAny() {
         if (antrianHewan.empty()) {
-            return animal("", -1);
+            return Animal("", -1);
         }
-        animal hewanTertua = antrianHewan.front();
+        Animal hewanTertua = antrianHewan.front();
         antrianHewan.pop();
         return hewanTertua;
     }
 
-    // hapus anjing dari antrian
-    animal dequeueDog() {
-        queue<animal> tempQueue;
-        animal foundAnimal("", -1);
+    // Menghapus anjing tertua dari shelter
+    Animal dequeueDog() {
+        Animal foundDog("", -1); // Inisialisasi dengan Animal kosong
+        queue<Animal> temp;
         while (!antrianHewan.empty()) {
-            animal currentAnimal = antrianHewan.front();
+            Animal hewan = antrianHewan.front();
             antrianHewan.pop();
-            if (currentAnimal.jenis == "Anjing" && foundAnimal.jenis == "") {
-                foundAnimal = currentAnimal;
+            if (hewan.jenis == "Anjing") {
+                foundDog = hewan;
+                break;
             } else {
-                tempQueue.push(currentAnimal);
+                temp.push(hewan);
             }
         }
-        swap(antrianHewan, tempQueue);
-        return foundAnimal;
+        while (!temp.empty()) {
+            Animal hewan = temp.front();
+            temp.pop();
+            antrianHewan.push(hewan);
+        }
+        return foundDog;
     }
 
-    // hapus kucing dari antrian
-    animal dequeueCat() {
-        queue<animal> tempQueue;
-        animal foundAnimal("", -1);
+    // Menghapus kucing tertua dari shelter
+    Animal dequeueCat() {
+        Animal foundCat("", -1); // Inisialisasi dengan Animal kosong
+        queue<Animal> temp;
         while (!antrianHewan.empty()) {
-            animal currentAnimal = antrianHewan.front();
+            Animal hewan = antrianHewan.front();
             antrianHewan.pop();
-            if (currentAnimal.jenis == "Kucing" && foundAnimal.jenis == "") {
-                foundAnimal = currentAnimal;
+            if (hewan.jenis == "Kucing") {
+                foundCat = hewan;
+                break;
             } else {
-                tempQueue.push(currentAnimal);
+                temp.push(hewan);
             }
         }
-        swap(antrianHewan, tempQueue);
-        return foundAnimal;
+        while (!temp.empty()) {
+            Animal hewan = temp.front();
+            temp.pop();
+            antrianHewan.push(hewan);
+        }
+        return foundCat;
     }
 };
 
-// main program (program utama)
+// Program Utama
 int main() {
-    Queue Queue;
+    Queue shelter;
 
-    // masukkan jumlah hewan anjing dan kucing ke dalam antrian
-    animal animal1("Anjing", 50);
-    animal animal2("Kucing", 20);
-    animal animal3("Anjing", 30);
+    // Menambahkan hewan ke shelter
+    Animal animal1("Anjing", 50);
+    Animal animal2("Kucing", 20);
+    Animal animal3("Anjing", 30);
 
-    // tambahkan hewan ke dalam antrian
-    Queue.enqueue(animal1);
-    Queue.enqueue(animal2);
-    Queue.enqueue(animal3);
+    shelter.enqueue(animal1);
+    shelter.enqueue(animal2);
+    shelter.enqueue(animal3);
 
-    // adopsi hewan tertua (tidak memilih jenis hewan)
-    animal adopsiHewan = Queue.dequeueAny();
+    // Adopsi hewan tertua (tanpa memilih jenis)
+    Animal adopsiHewan = shelter.dequeueAny();
     if (adopsiHewan.jenis != "") {
         cout << "Hewan yang diadopsi: " << adopsiHewan << endl;
     } else {
         cout << "Tidak ada hewan yang tersedia untuk diadopsi." << endl;
     }
 
-    // adopsi hewan tertua (memilih jenis hewan)
+    // Adopsi hewan tertua (memilih jenis)
     string jenisHewan;
     cout << "Pilih jenis hewan yang ingin diadopsi (Anjing/Kucing): ";
     cin >> jenisHewan;
 
-    // jika user memasukkan anjing atau kucing
     if (jenisHewan == "Anjing" || jenisHewan == "Kucing") {
-        animal adopsiHewan;
-        // jika user memasukkan "Anjing", maka menjalankan dequeueDog
+        Animal adopsiHewanResult; // Gunakan nama yang berbeda
         if (jenisHewan == "Anjing") {
-            adopsiHewan = Queue.dequeueDog();
-        } 
-        // jika user memasukkan "Kucing", maka menjalankan dequeueCat
-        else {
-            adopsiHewan = Queue.dequeueCat();
+            adopsiHewanResult = shelter.dequeueDog();
+        } else {
+            adopsiHewanResult = shelter.dequeueCat();
         }
 
-        // input jenis hewan yang ingin diadopsi
-        if (adopsiHewan.jenis != "") {
-            cout << "Hewan yang diadopsi: " << adopsiHewan << endl;
+        if (adopsiHewanResult.jenis != "") {
+            cout << "Hewan yang diadopsi: " << adopsiHewanResult << endl;
         } else {
             cout << "Tidak ada " << jenisHewan << " yang tersedia untuk diadopsi." << endl;
         }

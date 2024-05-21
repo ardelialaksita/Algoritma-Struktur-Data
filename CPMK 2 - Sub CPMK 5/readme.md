@@ -462,8 +462,4 @@ Pada output tersebut, kata yang diinput oleh user adalah **Pagi**. Selanjutnya, 
 - Pada perulangan for yang berisi `char hurufAwal = firstWord.pop();` dan `char hurufAkhir = lastWord.pop();` digunakan untuk mengecek apakah suatu kata palindrome atau tidak. Urutan huruf dari awal ke akhir akan diperiksa apakah sama seperti urutan huruf dari akhir ke awal atau tidak.
 
 #### Full code Screenshot:
-<<<<<<< HEAD
 ![Cuplikan layar 2024-05-06 200024](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/a936a239-c282-4098-acce-539f35b653a4)
-=======
-![Cuplikan layar 2024-05-06 200024](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/a936a239-c282-4098-acce-539f35b653a4)
->>>>>>> 17e261063f729ac3769c41f1c3ebdac09a630b21
