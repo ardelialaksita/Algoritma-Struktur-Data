@@ -9,6 +9,22 @@
 
 ## Soal 1
 ### 1. Terdapat tiga algoritma sorting yang umum digunakan yakni, Bubble Sort, Selection Sort, dan Merge Sort. Berikan penjelasan alur dari masing-masing algoritma tersebut, dan jelaskan runtime dari best case dan worst case masing-masing algoritma! (35 Poin)
+### Bubble Sort
+Yaitu algoritma yang melakukan perulangan untuk proses pembandingan antara tiap-tiap elemen array dan menukarnya apabila urutannya masih belum sesuai.
+**Alur dari algoritma Bubble Sort:**
+1. Inisialisasi array
+2. Melakukan perbandingan elemen sebelumnya (misalnya: A) dengan elemen setelahnya (misalnya: B)
+3. Pada ascending: Apabila elemen A lebih besar dibanding elemen B, maka tukar posisi elemen A dengan elemen B. Pada descending: Apabila elemen A lebih kecil dibanding elemen B, maka tukar posisi elemen A dengan elemen B. Ascending adalah proses sorting secara menaik sehingga elemen sebelumnya harus lebih kecil. Descending adalah proses sorting secara menurun sehingga elemen sebelumnya harus lebih besar.
+4. Apabila tidak lebih besar (ascending) ataupun lebih kecil (descending) daripada elemen setelahnya, maka lakukan iterasi berikutnya.
+5. Lakukan langkah 1 sampai dengan 4 hingga seluruh elemen urut. Apabila ascending, maka elemen yang paling besar akan berada pada array paling akhir. Apabila descending, maka elemen yang paling besar akan berada pada array paling awal.
+
+### Insertion Sort
+**Alur dari algoritma Insertion Sort:**
+1. 
+
+### Merge Sort
+**Alur dari algoritma Merge Sort:**
+1. 
 
 ## Soal 2
 ### 2. Buatlah fungsi dari salah satu algoritma sorting pada soal nomor 1, dan berikan penjelasan pada program tersebut (35 Poin)
@@ -113,6 +129,50 @@ int main() {
 }
 
 ```
+Kode tersebut digunakan untuk melakukan sorting secara menaik (ascending) dan menurun (descending) dengan bilangan dan karakter yang diinputkan oleh user. Algoritma sorting yang digunakan adalah insertion sort. Pertama-tama, buatlah fungsi menggunakan void untuk proses insertion sort secara ascending dan descending terlebih dahulu. Fungsi tersebut akan dipanggil pada _main program_. Selanjutnya, buatlah kode untuk mencetak dan menampilkan isi array. Terakhir, buatlah main program untuk menjalankan proses sorting dan mencetak data yang belum diurutkan dan sudah diurutkan. 
+
+- `int i, j;` dan `char tmp;` digunakan untuk mendeklarasikan i, j, dan tmp. 
+- `while (j > 0 && arr[j - 1] < arr[j])` dan `while (j > 0 && arr[j - 1] > arr[j])` merupakan perbandingan untuk menentukan apakah pertukaran posisi diperlukan atau tidak. Selain itu, kode tersebut juga akan melanjutkan iterasi dan proses sorting jika tidak ada pertukaran posisi lagi yang dilakukan.
+1. `j > 0 && arr[j - 1] > arr[j]` untuk sorting yang dilakukan secara ascending (menaik).
+2. `j > 0 && arr[j - 1] < arr[j]` untuk sorting yang dilakukan secara descending (menurun).
+- **While Loop** digunakan untuk melakukan iterasi selama proses sorting.
+- **For Loop** digunakan untuk membandingkan antar elemen dan menukar posisi apabila diperlukan.
+
+Selanjutnya, terdapat program untuk mencetak dan menampilkan isi array menggunakan fungsi void pada `void print_array(char a[], int length)` dimana `char` merupakan tipe data yaitu karakter, sedangkan `a` sebagai nama variabel array tersebut.
+
+**Penjelasan main program :**
+- `int length;` merupakan deklarasi panjang array. Panjang array tidak langsung disebutkan (hanya dideklarasikan) karena nantinya akan diinputkan oleh user. 
+- `cout << "input (n) = ";` dan `cin >> length;` akan meminta user untuk memasukkan (input) panjang array. 
+- `char a[length];` merupakan deklarasi tipe data yang akan diinputkan oleh user sesuai dengan length (panjang) yang telah diinputkan sebelumnya. 
+- `cout << "Masukkan " << length << " karakter: " << endl;` akan menampilkan jumlah karakter yang akan diinputkan oleh user. Selanjutnya, program akan meminta user untuk memasukkan karakter sesuai posisi array menggunakan perulangan for `for (int i = 0; i < length; i++)`, `cout << "Karakter ke-" << i + 1 << ": ";` dan `cin >> a[i];`.
+- `cout << "Urutan karakter sebelum sorting: " << endl;` dan `print_array(a, length);` akan menampilkan urutan karakter sebelum diurutkan.
+- `insertion_sort_ascending(a, length);` akan memanggil fungsi untuk melakukan proses insertion sort secara ascending.
+- `cout << "Urutan karakter setelah ascending sort: " << endl;` dan `print_array(a, length);` akan menampilkan urutan karakter setelah diurutkan secara ascending (menaik).
+- `insertion_sort_descending(a, length);` akan memanggil fungsi untuk melakukan proses insertion sort secara descending.
+- `cout << "Urutan karakter setelah descending sort: " << endl;` dan `print_array(a, length);` akan menampilkan urutan karakter setelah diurutkan secara descending (menurun).
+
+### Analisis kompleksitas waktu dan ruang :
+Pada program tersebut, insertion sort memiliki perulangan while di dalam perulangan for sehingga terdapat 2 perulangan pada masing-masing algoritma insertion sort ascending dan algoritma insertion sort descending. 
+
+- **Insertion Sort Ascending** : setiap elemen array harus ditempatkan pada posisi dari terkecil ke terbesar (naik). Worse casenya adalah saat setiap elemen harus dipindahkan ke posisi awal sehingga setiap operasi dalam perulangan for akan memerlukan i operasi. Oleh karena itu, kompleksitas waktunya adalah `O(n²)`dan kompleksitas ruangnya adalah `O(1)`.
+- **Insertion Sort Descending** : setiap elemen array harus ditempatkan pada posisi dari terbesar ke terkecil (turun). Worse casenya adalah saat setiap elemen harus dipindahkan ke posisi awal sehingga setiap operasi dalam perulangan for akan memerlukan i operasi. Oleh karena itu, kompleksitas waktunya adalah `O(n²)`dan kompleksitas ruangnya adalah `O(1)`. Ini serupa dengan konsep insertion sortascending.
+
+Jika hanya terdapat 1 perulangan, maka kompleksitas waktunya adalah **O(n)**. Namun, jika terdapat perulangan di dalam perulangan, maka kompleksitas waktunya adalah **O(n²)**. Operasi dasar pada algoritma tersebut dilakukan secara konstan sehingga kompleksitas waktu algoritma insertion sort tersebut adalah `O(n²)`. Sedangkan kompleksitas ruangnya adalah `O(1)`. Kompleksitas waktunya bergantung secara kuadratik. Sedangkan kompleksitas ruangnya tidak bergantung pada ukuran array yang diurutkan. Total operasinya sebagai berikut.
+
+`(n-1) + (n-2) + ... + n + 2 + 1`
+
+Jadi, kedua algoritma insertion sort tersebut memiliki kompleksitas waktu `O(n²)`dan kompleksitas ruang adalah `O(1)`. 
+
+Saat program dijalankan, maka user akan diminta untuk memasukkan panjang array. Selanjutnya, user akan diminta untuk memasukkan value array sesuai pada lokasinya masing-masing. User akan mengetahui lokasi value yang mereka inputkan terletak pada karakter ke berapa.
+
+**Penjelasan Input dan Output sesuai data yang telah diinputkan oleh user :**
+- `input (n) = 5` artinya user memasukkan 5 sebagai panjang array.
+- `Masukkan 5 karakter` artinya user diminta memasukkan sebanyak 5 karakter sesuai panjang yang telah diinputkan sebelumnya.
+- `Karakter ke-1: a` artinya a merupakan karakter pertama yang diinputkan oleh user.
+- `Karakter ke-2: e` artinya e merupakan karakter kedua yang diinputkan oleh user.
+- `Karakter ke-3: d` artinya d merupakan karakter ketiga yang diinputkan oleh user.
+- `Karakter ke-4: b` artinya b merupakan karakter keempat yang diinputkan oleh user.
+- `Karakter ke-5: c` artinya c merupakan karakter kelima yang diinputkan oleh user.
 
 ### Output:
 ![program 1 output](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/1e46da71-6a36-4886-a1c3-7a8c206c4c4d)
