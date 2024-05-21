@@ -4,6 +4,8 @@
 ## Table of Contents
 1. [Soal 1](#soal-1)
 2. [Soal 2](#soal-2)
+3. [Soal 3](#soal-3)
+4. [Soal 4](#soal-4)
 
 ## Soal 1
 ### 1. Terdapat tiga algoritma sorting yang umum digunakan yakni, Bubble Sort, Selection Sort, dan Merge Sort. Berikan penjelasan alur dari masing-masing algoritma tersebut, dan jelaskan runtime dari best case dan worst case masing-masing algoritma! (35 Poin)
@@ -113,7 +115,7 @@ int main() {
 ```
 
 ### Output:
-![program 1 output](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/135d7689-9f08-41c2-8712-a962058250d2)
+![program 1 output](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/1e46da71-6a36-4886-a1c3-7a8c206c4c4d)
 
 ### Full code of screenshot:
 ![program 1 full ss](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/f776b3c4-7b41-43d3-9dd9-44ca65b057b3)
