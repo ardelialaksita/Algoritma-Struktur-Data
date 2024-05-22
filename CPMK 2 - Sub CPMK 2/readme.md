@@ -9,8 +9,10 @@
 
 ## Soal 1
 ### 1. Terdapat tiga algoritma sorting yang umum digunakan yakni, Bubble Sort, Selection Sort, dan Merge Sort. Berikan penjelasan alur dari masing-masing algoritma tersebut, dan jelaskan runtime dari best case dan worst case masing-masing algoritma! (35 Poin)
+
 ### Bubble Sort
-Yaitu algoritma yang melakukan perulangan untuk proses pembandingan antara tiap-tiap elemen array dan menukarnya apabila urutannya masih belum sesuai.
+Bubble sort yaitu algoritma yang melakukan perulangan untuk proses pembandingan antara tiap-tiap elemen array dan menukarnya apabila urutannya masih belum sesuai. Bubble sort merupakan salah satu algoritma pengurutan data dengan menerapkan konsep ascending atau descending secara sederhana[1]. Skema prosesnya dengan cara membandingkan elemen yang berdekatan, kemudian menukarnya apabila hasil urutannya tidak sesuai. Bubble sort merupakan gabungan dari selection sort dan insertion sort.
+
 **Alur dari algoritma Bubble Sort:**
 1. Inisialisasi array
 2. Melakukan perbandingan elemen sebelumnya (misalnya: A) dengan elemen setelahnya (misalnya: B)
@@ -18,13 +20,34 @@ Yaitu algoritma yang melakukan perulangan untuk proses pembandingan antara tiap-
 4. Apabila tidak lebih besar (ascending) ataupun lebih kecil (descending) daripada elemen setelahnya, maka lakukan iterasi berikutnya.
 5. Lakukan langkah 1 sampai dengan 4 hingga seluruh elemen urut. Apabila ascending, maka elemen yang paling besar akan berada pada array paling akhir. Apabila descending, maka elemen yang paling besar akan berada pada array paling awal.
 
+**Best Case dan Worst Case Runtime Algoritma Bubble Sorting:**
+- **Best Case**: O(n), yaitu terjadi saat datanya telah diurutkan, tidak perlu ada pertukaran yang dilakukan.
+- **Worst Case**: O(n^2), yaitu terjadi saat datanya diurutkan secara descending saat penyusunan harus dilakukan secara ascending, begitu pula sebaliknya. Elemen harus dibandingkan dan ditukar pada setiap langkah. 
+
 ### Insertion Sort
+Insertion Sort merupakan algoritma pengurutan sederhana yang mempunyai proses hampir sama seperti cara mengurutkan kartu remi[32]. Proses sorting algoritma ini yaitu dengan cara memecah elemen menjadi dua bagian yaitu diurutkan dan tidak diurutkan. Insertion Sort efisien untuk nilai data kecil[2]. Pada Insertion Sort, semua elemen akan terkena scan terlebih dahulu sehingga penukaran posisi dilakukan hanya jika terdapat suatu elemen yang posisinya tidak tepat. 
+
 **Alur dari algoritma Insertion Sort:**
-1. 
+1. Inisialisasi array.
+2. Simpan elemen pertama sebagai elemen yang akan dibandingkan dengan elemen berikutnya. 
+3. Lakukan iterasi untuk setiap elemen selanjutnya. Bandingkan elemen saat ini dengan elemen yang telah disimpan pada langkah 2. Geser elemen yang disimpan ke kanan apabila lebih besar (ascending) atau geser ke kanan apabila lebih kecil (descending). Sisipkan elemen saat ini pada posisi yang sesuai dengan urutan. Pergeseran elemen boleh terus dilakukan hingga elemen tersebut menempati posisi yang sesuai, baik secara asceding maupun descending.
+4. Lakukan langkah 1 sampai dengan 3 hingga semua elemen telah urut.
+
+**Best Case dan Worst Case Runtime Algoritma Insertion Sorting:**
+- **Best Case**: O(n), yaitu terjadi saat datanya telah diurutkan, tidak perlu ada pertukaran yang dilakukan. Insertion sort hanya perlu melakukan satu iterasi dan tidak ada perbandingan atau pertukaran yang perlu dilakukan.
+- **Worst Case**: O(n^2), yaitu terjadi saat datanya diurutkan secara descending saat penyusunan harus dilakukan secara ascending, begitu pula sebaliknya. 
 
 ### Merge Sort
+Merge Sort adalah algoritma yang pengurutannya dilakukan dengan _divide_ dan _conquer_ dimana array dibagi menjadi 2 sub-array, kemudian diurutkan secara rekursif. Setelah itu, sub-array yang telah diurutkan kemudian digabungkan kembali menjadi 1 array yang telah sesuai urutannya.
+
 **Alur dari algoritma Merge Sort:**
-1. 
+1. Divide: yaitu memilah-milah elemen dari suatu array yang kemudian dibagi menjadi 2 sub-array.
+2. Conquer: yaitu melakukan perbandingan dan pengurutan elemen pada masing-masing sub-array secara rekursif.
+3. Combination: yaitu mengkombinasikan dua sub-array yang telah diurutkan menjadi satu array dengan menyesuaikan urutannya. Dengan begitu, didapatkan array yang telah urut.
+
+**Best Case dan Worst Case Runtime Algoritma Merge Sorting:**
+- **Best Case**: O(n log n), yaitu terjadi saat seluruh data telah urut. Merge sort hanya perlu melakukan satu iterasi untuk menggabungkan sub-array yang sudah diurutkan.
+- **Worst Case**: O(n log n), yaitu terjadi ketika datanya diurutkan secara descending saat penyusunan harus dilakukan secara ascending, begitu pula sebaliknya. Merge Sort perlu melakukan iterasi sebanyak n untuk membagi dan menggabungkan sub-array.
 
 ## Soal 2
 ### 2. Buatlah fungsi dari salah satu algoritma sorting pada soal nomor 1, dan berikan penjelasan pada program tersebut (35 Poin)
@@ -253,9 +276,14 @@ int main() {
 }
 
 ```
+Kode tersebut digunakan untuk melakukan pengecekan apakah suatu kata merupakan anagram atau tidak anagram. Dua kata yang anagram adalah apabila huruf-huruf di dalam kedua kata tersebut memiliki jumlah dan isi yang sama, walaupun urutannya berbeda. Sedangkan kata yang tidak anagram adalah apabila huruf-huruf di dalam kata-kata tersebut tidak memiliki kandungan huruf yang sama, walaupun jumlahnya sama dan walaupun posisinya ditukar-tukar. 
 
 ### Output:
 ![program 2 output](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/8142a081-a222-44e4-97ab-7afc84e69ede)
+
+Pada output tersebut, user menambahkan kata 'bahu' dan 'buah' serta 'makan' dan 'minum' untuk dilakukan pengecekan manakah kata yang anagram dan tidak anagram. Kata pada indeks 0 string 1 (bahu) akan dibandingkan dengan indeks 0 string 2 (buah). Sedangkan kata pada indeks 1 string 1 akan dibandingkan dengan indeks 1 string 2. 
+
+Selanjutnya, didapatkan hasil bahwa 'bahu' dan 'buah' merupakan anagram karena memiliki jumlah huruf dan huruf yang sama yaitu a, b, h, dan u walaupun posisinya ditukar-tukar. Sedangkan pada 'makan' dan 'minum' didapatkan hasil tidak anagram karena meskipun memiliki jumlah huruf yang sama, kedua kata tersebut tidak memiliki huruf yang sama walaupun posisinya ditukar-tukar. Oleh karena itu, kedua kata tersebut tidak anagram.
 
 ### Full code of screenshot:
 ![program 2 full ss](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/b048a3b8-127e-4896-991e-9b226edeb805)
@@ -310,6 +338,11 @@ int main() {
 }
 
 ```
+Kode tersebut digunakan untuk menggabungkan array B ke array A. Kemudian, array tersebut diurutkan. Dalam hal ini, array A dapat menampung lebih banyak isi sehingga array B dapat digabungkan. 
+
+Untuk menggabungkan array B ke array A, maka insert dilakukan pada array A menggunakan kode `arrA.insert(arrA.end(), arrB.begin(), arrB.end());`. Selanjutnya, array diurutkan menggunakan kode `sort(arrA.begin(), arrA.end());`. Sorting pada program di atas dilakukan secara ascending dan descending.
+
+Pada main program, array A dan array B perlu diisi terlebih dahulu. 10, 30, 90, 70, dan 50 merupakan isi dari array A. Sedangkan 20, 60, 100, 80, dan 40 merupakan isi dari array B. Selanjutnya, array B digabungkan ke array A dan diurutkan dengan memanggil fungsi `mergeSortedArrays(arrA, arrB);` dimana pada fungsi tersebut telah ada kode untuk menggabungkan dan mengurutkan array. Berikut output dari program tersebut.
 
 ### Output:
 ![program 3 output](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/687ed3c3-a4f7-4c42-bfa8-c78fb719f32b)
