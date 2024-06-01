@@ -117,7 +117,32 @@ int main() {
 }
 
 ```
-Kode tersebut digunakan untuk ...
+Kode tersebut digunakan untuk menghapus duplikasi data menggunakan double linked list. Terdapat struct untuk menyimpan deklarasi beberapa variable yaitu `int data;`, `Node* next;`, `Node* prev;`. Ada juga fungsi void untuk menghapus duplikasi data yaitu `void hapusDuplikasi(Node* head)` serta fungsi void untuk menambahkan node baru pada linked list yaitu `void tambahData(Node*& head, int data) ` yang akan dipanggil pada main program. Selain itu, fungsi void cetak list juga terdapat dalam program tersebut yang akan digunakan untuk menampilkan linkedlist. Cara menampilkannya yaitu dengan kode `cout << head->data << " ";` dimana tampilan outputnya adalah "(data linked list)".
+
+**Penjelasan kode pada void menghapus duplikasi data :**
+
+- Apabila head adalah NULL, maka program akan menjalankan return menggunakan `if (head == NULL) return;`. 
+- `unordered_set<int> list; merupakan deklarasi dari list menggunakan sebuah library.
+- `Node* current = head;` merupakan deklarasi menggunakan pointer dimana data current = head (node saat ini adalah node head)
+- Saat node current bukanlah NULL (artinya ada nilainya) dan apabila terdapat duplikasi data, maka program akan menghapus node current menggunakan `Node* hapus = current;`.
+- Apabila tidak terdapat duplikasi data, maka program akan menjalankan `list.insert(current->data);` dan `current = current->next;` dimana datanya tidak dihapus dan langsung dilanjutkan ke node berikutnya.
+
+**Penjelasan kode pada void menambahkan node baru pada linked list :**
+
+- `Node* nodeBaru = new Node(data);` merupakan deklarasi dari node baru.
+- Apabila head adalah NULL (belum ada nilainya), maka program akan menambahkan node baru pada node head menggunakan `head = nodeBaru;` dan mengembalikan nilainya menggunakan `return;`.
+- Selanjutnya, program dalam linked list akan terus menjalankan program setelah node baru ditambahkan menggunakan `temp->next = nodeBaru;` dan `nodeBaru->prev = temp;` dimana node baru akan ditambahkan pada posisi sebelumnya (previous).
+
+**Penjelasan main program :**
+
+- `Node* head = NULL;` merupakan deklarasi node head adalah kosong (NULL) yang artinya belum ada nilainya.
+- `tambahData(head, 70);` digunakan untuk menambah data pada linked list. Kode tersebut artinya 70 akan ditambahkan ke dalam linked list. Selain 70, terdapat pula 80, 100, 100, 80, dan 90 untuk ditambahkan juga ke dalam linked list.
+- Kemudian, program akan menampilkan data yang ditambahkan menggunakan `cout << "List: ";` dan memanggil fungsi untuk mencetak datanya yaitu `cetakList(head);`.
+- List yang berisi data sebelum duplikasi data dihapus akan ditampilkan menggunakan `cout << "List sebelum duplikasi data dihapus: ";` dan memanggil lagi fungsi `cetakList(head);`.
+- Lalu, baru data yang memiliki duplikat akan dihapus menggunakan `hapusDuplikasi(head);`.
+- List data setelah duplikasi data dihapus ditampilkan menggunakan `cout << "List setelah duplikasi data dihapus: ";` dan memanggil fungsi `cetakList(head);` untuk menampilkannya.
+- `return 0;` merupakan kode yang menandakan bahwa program telah selesai dan berhasil. 
+
 
 #### Output:
 ![Cuplikan layar 2024-05-19 000237](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/0476e2ad-75e6-4807-a33e-df8ffc462235)
