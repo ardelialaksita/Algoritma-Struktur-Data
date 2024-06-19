@@ -70,3 +70,8 @@ _**Source: Sitasi 2**_
 
 
 # Referensi
+- [1] A. Subero, Codeless Data Structures and Algorithms: Learn DSA Without Writing a Single Line of Code . Edisi Pertama. Moruga (US) : Apress Publisher, 2020.
+- [2] D. Bali, “Memahami Konsep Tree dalam Struktur Data Lengkap dengan Source Code Programnya,” Medium, Jun. 14, 2021. https://daismabali.medium.com/memahami-konsep-tree-dalam-struktur-data-lengkap-dengan-source-code-programnya-acbd0a8733d6 (accessed Jun. 15, 2024).
+- [3] J. Farrier, Data Structures and Algorithms with the C++ STL. Edisi Pertama. Birmingham : Packt Publishing Ltd, 2024.
+- [4] S.N. Mohanty dan P. K. Tripathy, Data Structure and Algorithms Using C++. New York City : Wiley Publishing, 2021.
+- [5] V. Vashist, “Graphs Data Structure in C++,” Medium, Aug. 07, 2023. https://medium.com/@vinay.vashist2003/graphs-data-structure-in-c-ab7b4205f41a (accessed Jun. 15, 2024).
