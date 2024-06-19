@@ -49,6 +49,6 @@ Pada dasarnya, Priority Queue dapat diimplementasikan dengan menggunakan struktu
 - [4] D. Malhotra dan N. Malhotra, Data Structures and Program Design Using C++. Edisi Pertama. Virginia (US) : Mercury Learning and Information, 2019.
 - [5] M. Jamro, C# Data Structures and Algorithm. Edisi Pertama. Birmingham (Inggris) : Packt Publishing, 2024.
 - [6] R. Pratama, "Priority Queue: Konsep dan Penggunaan dalam Algoritma," Medium, 22 Juli 2023. [Online]. Tersedia : 
-https://medium.com/@furatamarizuki/priority-queue-konsep-dan-penggunaan-dalam-algoritma-f4c1cd117ba [Diakses: 19 Mei 2024].
-- [7] R. Pratama, “Queue: Pengealan, Implementasi, Operasi Dasar, dan Aplikasi,” Medium, 25 Mei 2023. [Online]. Tersedia : https://medium.com/@furatamarizuki/queue-pengenalan-implementasi-operasi-dasar-dan-aplikasi-c5eed7e871a3 [Diakses: 19 Mei 2024].
+https://medium.com/@furatamarizuki/priority-queue-konsep-dan-penggunaan-dalam-algoritma-f4c1cd117ba [Diakses: 17 Juni 2024].
+- [7] R. Pratama, “Queue: Pengealan, Implementasi, Operasi Dasar, dan Aplikasi,” Medium, 25 Mei 2023. [Online]. Tersedia : https://medium.com/@furatamarizuki/queue-pengenalan-implementasi-operasi-dasar-dan-aplikasi-c5eed7e871a3 [Diakses: 19 Juni 2024].
 - [8] S.N. Mohanty dan P. K. Tripathy, Data Structure and Algorithms Using C++. New York City : Wiley Publishing, 2021.
