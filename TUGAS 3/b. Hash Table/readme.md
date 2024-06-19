@@ -40,3 +40,6 @@ Ketika _collision_ terjadi, elemen baru dimasukkan ke dalam array kosong berikut
 
 
 # Referensi
+- [1] I. Ashraf, “Hash Table,” Medium, Dec. 27, 2023. Available: https://medium.com/@realirfanashraf/hash-table-176d0b18b59b#:~:text=A%20Hash%20Table%2C%20also%20referred%20to%20as%20a%20hash%20map,autonomously%20adds%20its%20own%20keys.. [Accessed: Jun. 03, 2024]
+- [2] J. Farrier, Data Structures and Algorithms with the C++ STL. Edisi Pertama. Birmingham : Packt Publishing Ltd, 2024. https://www.google.co.id/books/edition/Data_Structures_and_Algorithms_with_the/JCf2EAAAQBAJ?hl=id&gbpv=1
+- [3] V. Rana, “Everything You Need to Know About Hash Tables,” Medium, Feb. 28, 2023. Available: https://vishalrana9915.medium.com/everything-you-need-to-know-about-hash-tables-7e2bf812c7fe. [Accessed: Jun. 02, 2024]
