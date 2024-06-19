@@ -5,6 +5,7 @@
 1. [Penjelasan](#penjelasan)
 2. [Contoh Program](#contoh-program)
 3. [Penjelasan Alur Program](#penjelasan-alur-program)
+4. [Referensi](#referensi)
 
 # Penjelasan
 Priority Queue adalah struktur data khusus yang memungkinkan kita menyimpan elemen-elemen dengan nilai prioritas tertentu [10]. Konsep dari Priority Queue mirip dengan Queue biasa. Yang membedakan adalah pada Priority Queue terdapat nilai prioritas elemen yang akan menentukan urutan elemen saat diambil. Pada algoritma priority queue, setiap item di queue memiliki prioritas dimana elemen dengan prioritas yang lebih tinggi akan dikeluarkan (dequeue) terlebih dahulu sebelum elemen yang memiliki prioritas lebih rendah [3]. 
@@ -38,3 +39,7 @@ Pada dasarnya, Priority Queue dapat diimplementasikan dengan menggunakan struktu
 ```
 
 # Penjelasan Alur Program
+
+
+# Referensi
+
