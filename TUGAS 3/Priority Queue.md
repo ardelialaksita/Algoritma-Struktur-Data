@@ -1,4 +1,4 @@
-# <h1 align="center">Priority Queue and Heaps</h1>
+# <h1 align="center">Priority Queue</h1>
 <p align="center">2311110051 - Ardelia Rachma Laksita</p>
 
 ## Table of Contents
