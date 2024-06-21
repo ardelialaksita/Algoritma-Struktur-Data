@@ -236,11 +236,11 @@ Berikut kode-kode dan fungsi yang terdapat pada program tersebut:
 - `cout << "\n"` digunakan untuk mencetak space sebanyak 1 line sebelum atau sesudah suatu tampilan output.
 
 #### Output:
-![Cuplikan layar 2024-05-20 085503](https://github.com/ardelialaksita/Praktikum-Struktur-Data-Assignment/assets/157208713/ac6672b0-a919-45d8-aa1f-79c6ab7d2c82)
+![Cuplikan layar 2024-05-20 085503](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/42574da5-4946-4a66-9428-8db11a687053)
 
 **Penjelasan Output :**
 
-![Cuplikan layar 2024-05-20 120411](https://github.com/ardelialaksita/Praktikum-Struktur-Data-Assignment/assets/157208713/595fe6bc-45fa-4412-8d40-d52a17ca9091)
+![Cuplikan layar 2024-05-20 120411](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/d2442e7a-cd2c-46e7-b3e3-37bcb2718b3f)
 
 Pada output tersebut, user melakukan input dengan ukuran elemen (banyak elemen) adalah 10 menggunakan **"Enter the size of element: "**. Selanjutnya, program akan melakukan iterasi sebanyak elemen yang telah diinputkan. Program akan meminta user memasukkan elemen sebanyak 10 pada bagian **"Enter element ...: "** (elemen 1 hingga 10). Kemudian, program akan menampilkan seluruh elemen yang telah diinput dengan tampilan **"Priority Queue: "**. User memasukkan elemen-elemen berikut.
 - Enter element 1 : 10
@@ -254,19 +254,20 @@ Pada output tersebut, user melakukan input dengan ukuran elemen (banyak elemen) 
 - Enter element 9 : 2
 - Enter element 10 : 1
 
-![Cuplikan layar 2024-05-20 120610](https://github.com/ardelialaksita/Praktikum-Struktur-Data-Assignment/assets/157208713/186ac088-ff58-4e01-b860-afe135ee05c2)
+![Cuplikan layar 2024-05-20 120610](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/85936a0c-396a-4f3e-a0ad-769883c45178)
 
 Node with maximum prioritynya adalah 10. Selanjutnya, 10 diesktrak sehingga tidak ada lagi di dalam heap.
 
-![Cuplikan layar 2024-05-20 120620](https://github.com/ardelialaksita/Praktikum-Struktur-Data-Assignment/assets/157208713/8e83b065-3121-4b31-846f-5b6b3d3f0232)
+![Cuplikan layar 2024-05-20 120620](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/8d4f0d48-95d2-4ec5-b6bf-f010727c86a9)
 
 Pada output tersebut, elemen yang ingin diubah menggunakan changePriority adalah indeks ke-2 yaitu 8 menjadi 11 sehingga menghasilkan tampilan di atas.
 
-![Cuplikan layar 2024-05-20 120633](https://github.com/ardelialaksita/Praktikum-Struktur-Data-Assignment/assets/157208713/925e50ad-6ee5-413c-a03a-307e959c3368)
+![Cuplikan layar 2024-05-20 120633](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/4f5de919-91b3-4c0b-8248-78cbecc579bf)
 
 Pada output tersebut, elemen yang dihapus berada pada index ke-1 yaitu 7 sehingga 7 dihapus dari heap tersebut.
 
 #### Full code Screenshot:
+![Cuplikan layar 2024-05-20 085437](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/bb16e448-03d4-4083-8dc6-bcb70c05046e)
 
 # Referensi
 - [1] A.A. Puntambekar, Data Structures. Edisi Pertama. Washington : Amazon Digital Services, 2020.
