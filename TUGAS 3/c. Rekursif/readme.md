@@ -30,7 +30,7 @@ Yaitu digunakan untuk menghtiung luas lingkaran dengan r sebagai jari-jarinya.
 
 Yaitu digunakan untuk menghitung bintang beserta langkah-langkahnya pada suatu input. Berikut contoh penerapannya:
 
-![implementasi bintang](https://github.com/ardelialaksita/Praktikum-Struktur-Data-Assignment/assets/157208713/a9d1b068-0d6d-4e11-b737-671311f03f13)
+![implementasi bintang](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/76b6f270-7948-4a11-8ef6-7ec1c633bdbe)
 
 **_Source : Sitasi 2_**
 
@@ -38,17 +38,94 @@ Yaitu digunakan untuk menghitung bintang beserta langkah-langkahnya pada suatu i
 
 Yaitu digunakan untuk membantuk mempersingkat waktu pencarian permutasi. Permutasi yang tidak dilakukan dengan fungsi rekursi akan membutuhkan waktu yang banyak dan cukup melelahkan. Berikut pohon rekursi permutasi string [2].
 
-![implementasi permutasi](https://github.com/ardelialaksita/Praktikum-Struktur-Data-Assignment/assets/157208713/6448162c-7d04-4e74-bc26-718e199c1368)
+![implementasi permutasi](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/020a851b-17c4-4c03-9925-b197ebb22586)
 
 **_Source : Sitasi 2_**
 
 
 # Contoh Program
 ```C++
+// import library
+#include<iostream>
+using namespace std;
+
+// PROGRAM REKURSIF TIDAK LANGSUNG MENCARI FAKTORIAL BILANGAN BULAT POSITIF
+
+// fungsi faktorialB yang masih kosong
+int faktorialB(int n);
+
+// fungsi faktorialA dengan n sebagai bilangan yang dicari faktorialnya
+int faktorialA(int n) {
+    // jika n lebih dari 1
+    if(n > 1)
+        // lakukan return dengan memanggil fungsi faktorialB
+        return n * faktorialB(n - 1);
+    // jika n tidak lebih dari 1
+    else
+        // lakukan return 1
+        return 1;
+}
+
+// fungsi faktorialB dengan n sebagai bilangan yang dicari faktorialnya
+int faktorialB(int n) {
+    // jika n lebih dari 1
+    if(n > 1)
+        // lakukan return dengan memanggil fungsi faktorialA
+        return n * faktorialA(n - 1);
+    // jika n tidak lebih dari 1
+    else
+        // lakukan return 1
+        return 1;
+}
+
+// main program (program utama)
+int main() {
+    // deklarasi n
+    int n;
+
+    // user input bilangan bulat positif
+    cout << "Masukkan bilangan bulat positif: ";
+    cin >> n;
+
+    // tampilkan output jika user input n kurang dari 0
+    if (n < 0) {
+        cout << "Input tidak valid. Harap masukkan bilangan bulat positif." << endl;
+    } 
+    // tampilkan output jika user input n lebih dari 0
+    else {
+        cout << "Faktorial dari " << n << " adalah: " << faktorialB(n) << endl;
+    }
+    // return code
+    return 0;
+}
 
 ```
 
 # Penjelasan Alur Program
+Kode tersebut digunakan untuk mencari faktorial dari suatu bilangan bulat. Program tersebut menggunakan rekursif tidak langsung dimana tidak cukup apabila hanya menggunakan 1 fungsi. Bilangan bulat yang dicari disimbolkan dengan n. `int faktorial(int n)` merupakan fungsi yang akan dipanggil untuk menjalankan proses faktorial. Apabila n > 1, maka program akan terus melakukan iterasi perkalian dari bilangan faktorial hingga mencapai n - 1 = 1.
+
+`int faktorialB(int n);` tidak memiliki isi atau dapat dikatakan bahwa hanya digunakan untuk mendeklarasikan. Fungsi tersebut akan dipanggil pada fungsi `faktorialA()` yang berisi program untuk mencari faktorialnya. Iterasi akan terus dilakukan hingga kondisi fungsinya terpenuhi. Karena n-nya adalah 5, maka iterasi n-1 yang berjalan akan berhenti saat n - 1 = 1. 
+
+Apabila n lebih besar dari 1, maka akan menjalankan `return n * faktorialA(n - 1);`. Sedangkan apabila n tidak lebih besar dari 1, maka program akan menjalankan return 0. 
+
+`faktorialB()` merupakan fungsi yang digunakan untuk membantu `faktorialA()` yang berisi program untuk menghitung faktorial. Oleh karena itu, faktorialB dipaggil di dalam fungsi faktorialA. Selanjutnya, baru kita isi fungsi faktorialB yang memanggil fungsi faktorialA. 
+
+#### Penjelasan Main Program:
+- `int n;` merupakan deklarasi yang digunakan untuk merepresentasikan bilangan bulat yang ingin dicari faktorialnya.
+- `cout << "Masukkan bilangan bulat positif: ";` dan `cin >> n;` akan meminta user untuk memasukkan bilangan yang ingin dicari faktorialnya.
+- `if (n < 0)` yang berisi `cout << "Input tidak valid. Harap masukkan bilangan bulat positif." << endl;` artinya apabila n kurang dari 0, maka program akan mencetak "Input tidak valid. Harap masukkan bilangan bulat positif" karena program hanya akan menjalankn apabila n-nya lebih besar dari 0.
+- `cout << "Faktorial dari " << n << " adalah: " << faktorialB(n) << endl;` digunakan untuk menampilkan faktorial dari bilangan yang diinput.
+- Apabila n lebih besar dari 0, maka program akan menjalankan `cout << "Faktorial dari " << n << " adalah: " << faktorial(n) << endl;` dan menampilkan **"Faktorial dari ... (bilangan n) adalah: .... (faktorial bilangan tersebut)"**.
+- `return 0;` merupakan kode yang menandakan bahwa program telah selesai dan berhasil. 
+
+#### Output:
+![output unguided 2](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/9b6b5dad-e38e-4e5c-b179-ee0badc0a619)
+
+**Penjelasan Output:**
+Sama seperti yang telah dijelaskan pada output unguided 1. Pada output tersebut, user memasukkan bilangan 5 untuk dicari faktorialnya. Kemudian, program menjalankan iterasi fungsi rekursif dengan cara n = 5 dikali dengan n-1 dikali dengan n-2 dikali dengan n - 3 dikali dengan n - 4 hingga 1. Karena n-4 = 1, maka iterasi dihentikan dan ditemukan faktorial dari 5 adalah 120. 
+
+#### Full code Screenshot:
+![full ss unguided 2](https://github.com/ardelialaksita/Algoritma-Struktur-Data/assets/157208713/4699ed0d-8390-4665-9520-42f3509ca4d5)
 
 
 # Referensi
